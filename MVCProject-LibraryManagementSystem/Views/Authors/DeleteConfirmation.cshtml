@@ -1,0 +1,17 @@
+﻿@model Author
+@{
+    ViewBag.Title = "Author Delete Confirmation";
+}
+<h1>Author Delete</h1>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <p>&quot;@Model.FirstName @Model.LastName&quot;<br>Are you sure you want to delete?</p>
+
+    <button class="btn btn-primary">Yes, Delete it!</button>
+
+    <a class="btn btn-secondary" asp-action="Index">No, Don't Delete it!</a>
+
+</form>
+

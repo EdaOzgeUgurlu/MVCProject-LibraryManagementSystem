@@ -1,0 +1,56 @@
+﻿@using MVCProject_LibraryManagementSystem.Models.ViewModels.BookViewModels
+@model BookDetailsViewModel
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h2>@Model.Title</h2>
+
+<div>
+
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            Author
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FullName
+        </dd>
+        <dt class="col-sm-2">
+            Genre
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Genre
+        </dd>
+        <dt class="col-sm-2">
+            Publish Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PublishDate.ToString("d")
+        </dd>
+        <dt class="col-sm-2">
+            ISBN
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ISBN
+        </dd>
+        <dt class="col-sm-2">
+            Copies Available
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CopiesAvailable
+        </dd>
+        <dt class="col-sm-2">
+            Details
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Details
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+</div>

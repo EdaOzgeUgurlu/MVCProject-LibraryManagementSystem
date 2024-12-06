@@ -1,0 +1,45 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+<h1>Books</h1>
+<a class="btn btn-primary" asp-controller="Books" asp-action="New">New Book </a>
+<a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Go To Home Page</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Title </th>
+            @*    <th> AuthorId </th> *@
+            <th> AuthorName </th>
+            <th> Genre </th>
+            <th> Publish Date </th>
+            <th> ISBN </th>
+            <th> Copies Available </th>
+            <th> Operations </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Book book in Model)
+        {
+
+            <tr>
+                <td> @book.Id </td>
+                <td> @book.Title </td>
+                @*         <td> @book.AuthorId </td> *@
+                <td> @book.AuthorName </td>
+                <td> @book.Genre </td>
+                <td> @book.PublishDate.ToString("dd.MM.yyyy") </td>
+                <td> @book.ISBN  </td>
+                <td> @book.CopiesAvailable </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@book.Id">Edit</a>
+                    <a asp-action="DeleteConfirmation" class="btn btn-danger" asp-route-id="@book.Id">Delete</a>
+                    <a asp-action="Details" class="btn btn-success" asp-route-id="@book.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

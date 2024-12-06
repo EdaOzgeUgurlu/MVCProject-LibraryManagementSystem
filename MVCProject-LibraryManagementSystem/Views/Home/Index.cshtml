@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome<br />To <br />Library Management System </h1>
+        <p class="lead">You can manage books and authors using the buttons below.</p>
+        <p class="monospace small-text regular">Reminder: If the author of the new book is not on the author list, you must add the author before adding the new book!</p>
+
+        <hr class="my-4">
+        <div class="d-flex justify-content-center gap-3">
+            <a class="btn btn-primary btn-lg" asp-controller="Books" asp-action="Index">
+                <i class="bi bi-book me-2"></i>Book List
+            </a>
+            <a class="btn btn-success btn-lg" asp-controller="Authors" asp-action="Index">
+                <i class="bi bi-person me-2"></i>Author List
+            </a>
+        </div>
+    </div>
+</div>

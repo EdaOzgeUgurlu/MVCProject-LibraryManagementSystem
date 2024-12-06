@@ -1,0 +1,43 @@
+﻿@model List<Author>
+@{
+    ViewData["Title"] = "Authors";
+}
+<h1>Authors</h1>
+<a class="btn btn-primary" asp-controller="Authors" asp-action="NewAuthor">New Author </a>
+<a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Go To Home Page</a>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> FirstName </th>
+            <th> LastName </th>
+            <th> DateOfBirth </th>
+            <th> Operations </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Author author in Model)
+        {
+            <tr>
+                <td> @author.Id </td>
+                <td> @author.FirstName </td>
+                <td> @author.LastName </td>
+                <td> @author.DateOfBirth.ToString("dd.MM.yyyy") </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@author.Id">Edit</a>
+                    <a asp-action="DeleteConfirmation" class="btn btn-danger" asp-route-id="@author.Id">Delete</a>
+                    <a asp-action="Details" class="btn btn-success" asp-route-id="@author.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

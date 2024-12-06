@@ -1,0 +1,60 @@
+﻿@using MVCProject_LibraryManagementSystem.Models.ViewModels.BookViewModels
+@model BookEditViewModel
+@{
+    ViewBag.Title = "New Book";
+}
+<h1>Edit Book</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control">
+        <div class="form-text text-danger">
+            <span asp-validation-for="Title"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AuthorId" class="form-label"></label>
+        <select asp-for="AuthorId" asp-items="ViewBag.Authors" class="form-control"></select>
+        <div class="form-text text-danger">
+            <span asp-validation-for="AuthorId"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Genre" class="form-label"></label>
+        <input asp-for="Genre" class="form-control">
+        <div class="form-text text-danger">
+            <span asp-validation-for="Genre"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PublishDate" class="form-label"></label>
+        <input asp-for="PublishDate" type="date" class="form-control">
+        <div class="form-text text-danger">
+            <span asp-validation-for="PublishDate"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ISBN" class="form-label"></label>
+        <input asp-for="ISBN" class="form-control">
+        <div class="form-text text-danger">
+            <span asp-validation-for="ISBN"></span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CopiesAvailable" class="form-label"></label>
+        <input asp-for="CopiesAvailable" class="form-control">
+        <div class="form-text text-danger">
+            <span asp-validation-for="CopiesAvailable"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Details" class="form-label"></label>
+            <input asp-for="Details" class="form-control">
+            <div class="form-text text-danger">
+                <span asp-validation-for="Details"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+</form>

@@ -1,0 +1,76 @@
+﻿@using MVCProject_LibraryManagementSystem.Models.ViewModels.AuthorViewModels
+@model AuthorDetailsViewModel
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            First Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FirstName
+        </dd>
+        <dt class="col-sm-2">
+            Last Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.LastName
+        </dd>
+        <dt class="col-sm-2">
+            Date of Birth
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateOfBirth.ToString("d")
+        </dd>
+        <dt class="col-sm-2">
+            About The Author
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Details
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <h4>Author's Books</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Publish Date</th>
+                <th>ISBN</th>
+                <th>Copies Available</th>
+                <th>Book Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Genre</td>
+                    <td>@book.PublishDate.ToString("dd.MM.yyyy")</td>
+                    <td>@book.ISBN</td>
+                    <td>@book.CopiesAvailable</td>
+                    <td>@book.Details</td>
+                    @* <td>
+                <a asp-controller="Books" asp-action="Details" class="btn btn-success" asp-route-id="@book.Id">Details</a>
+                </td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+</div>
